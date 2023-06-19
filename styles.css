@@ -1,0 +1,47 @@
+@import url("https://fonts.googleapis.com/css2?family=Ubuntu&display=swap");
+
+body {
+  font-family: "Ubuntu", sans-serif;
+}
+
+.container {
+  background-color: #191a19;
+  width: 200px;
+  height: 70px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 15px;
+  position: relative;
+  margin-top: 1rem;
+}
+
+.container__header {
+  width: 100px;
+  background-color: white;
+  position: absolute;
+  top: -12.5%;
+  left: 20px;
+  border: 1px solid black;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-transform: capitalize;
+}
+
+#pomodoro {
+  color: white;
+  font-size: 25px;
+}
+
+/* Clases para añadir con JavaScript */
+.contador__trabajo {
+  background-color: #072227 !important;
+  color: #4fbdba !important;
+}
+
+.contador__descanso {
+  background-color: #ff0000 !important;
+  color: black !important;
+}
