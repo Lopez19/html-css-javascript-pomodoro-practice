@@ -11,6 +11,9 @@ const MINUTOS_DE_DESCANSO = 0.2;
 const MINUTOS_DE_DESCANSO_LARGO = 0.3; //18s
 const SESIONES = 4;
 
+const AUDIO_TRABAJO = new Audio("./Sounds/trabajo.mp3");
+const AUDIO_DESCANSO = new Audio("./Sounds/descanzo.mp3");
+
 let contadorDeSesiones = 1;
 let segundosTotales = MINUTOS_DE_TRABAJO * 60;
 
@@ -18,7 +21,7 @@ let segundosTotales = MINUTOS_DE_TRABAJO * 60;
 let modoTimer = "trabajo";
 
 // Funcion de la cuenta regresiva
-const cuentaRegresiva = () => {
+const cuentaRegresiva = async () => {
   // Minutos del contador
   let minutosEnteros = Math.floor(segundosTotales / 60);
   // Segundos del contador
@@ -43,10 +46,12 @@ const cuentaRegresiva = () => {
         contadorDeSesiones++;
         modoTimer = "descanso";
         segundosTotales = MINUTOS_DE_DESCANSO * 60;
+        await AUDIO_DESCANSO.play();
       } else {
         modoTimer = "largo 15M";
         segundosTotales = MINUTOS_DE_DESCANSO_LARGO * 60;
         contadorDeSesiones = 1;
+        await AUDIO_DESCANSO.play();
       }
     }
   } else {
@@ -56,6 +61,7 @@ const cuentaRegresiva = () => {
     if (segundosTotales < 0) {
       modoTimer = "trabajo";
       segundosTotales = MINUTOS_DE_TRABAJO * 60;
+      await AUDIO_TRABAJO.play();
     }
   }
 };
